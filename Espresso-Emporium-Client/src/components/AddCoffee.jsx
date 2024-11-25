@@ -1,27 +1,49 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
-    const handleAddCoffee =(e)=>{
-        e.preventDefault();
-        const form = e.target;
+  const handleAddCoffee = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        const name = form.name.value;
-        const chef = form.chef.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
-        const category = form.category.value;
-        const details = form.details.value;
-        const photo = form.photo.value;
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
 
-        console.log({ name, chef, supplier, taste, category, details, photo });
+    const newCofee = { name, chef, supplier, taste, category, details, photo };
+    console.log(newCofee);
 
-    }
+    // send data to server
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCofee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "User Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+  };
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-center py-10">
       <div className="w-full max-w-4xl mb-12">
-        <Link to={'/'}>
+        <Link to={"/"}>
           <button className="flex items-center gap-2 self-start text-3xl font-ranch font-semibold">
             <FaArrowLeft /> Back To Home
           </button>
