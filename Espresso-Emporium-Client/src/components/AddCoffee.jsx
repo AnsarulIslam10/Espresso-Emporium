@@ -3,18 +3,33 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const AddCoffee = () => {
+    const handleAddCoffee =(e)=>{
+        e.preventDefault();
+        const form = e.target;
+
+        const name = form.name.value;
+        const chef = form.chef.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const photo = form.photo.value;
+
+        console.log({ name, chef, supplier, taste, category, details, photo });
+
+    }
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-center py-10">
-      <div className="w-full max-w-4xl mb-3">
+      <div className="w-full max-w-4xl mb-12">
         <Link to={'/'}>
-          <button className="flex items-center gap-2 self-start text-xl font-ranch font-semibold">
+          <button className="flex items-center gap-2 self-start text-3xl font-ranch font-semibold">
             <FaArrowLeft /> Back To Home
           </button>
         </Link>
       </div>
       <div className="bg-[#F4F3F0] shadow-xl rounded-lg p-8 w-full max-w-4xl">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-gray-700 mb-2">
+          <h2 className="text-4xl font-bold text-gray-700 mb-2 font-ranch">
             Add New Coffee
           </h2>
           <p className="text-gray-500 max-w-md mx-auto">
@@ -22,7 +37,9 @@ const AddCoffee = () => {
             details to ensure accuracy and completeness.
           </p>
         </div>
-        <form>
+
+        {/* form */}
+        <form onSubmit={handleAddCoffee}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div>
               <label className="label">
