@@ -1,8 +1,9 @@
 import React from "react";
 import { FaEye, FaPen, FaTrash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   const { _id, name, photo, chef } = coffee;
 
   const handleDelete = id =>{
@@ -31,6 +32,8 @@ const CoffeeCard = ({ coffee }) => {
               text: "Your coffee has been deleted.",
               icon: "success"
             });
+            const remaining = coffees.filter(cof => cof._id !== _id)
+            setCoffees(remaining)
           }
         })
       }
@@ -60,9 +63,9 @@ const CoffeeCard = ({ coffee }) => {
           <button className="p-2 text-white text-sm cursor-pointer bg-[#D2B48C] rounded-md">
             <FaEye />
           </button>
-          <button className="p-2 text-white text-sm cursor-pointer bg-[#3C393B] rounded-md">
+          <Link to={`updateCoffee/${_id}`} className="p-2 text-white text-sm cursor-pointer bg-[#3C393B] rounded-md">
             <FaPen />
-          </button>
+          </Link>
           <button onClick={()=>handleDelete(_id)} className="p-2 text-white text-sm cursor-pointer bg-[#EA4744] rounded-md">
             <FaTrash />
           </button>
