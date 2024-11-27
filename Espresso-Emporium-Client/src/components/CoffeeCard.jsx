@@ -41,22 +41,22 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   }
 
   return (
-    <div className="flex items-center justify-between gap-6 border p-8">
+    <div className="flex items-center justify-between gap-6 border rounded-xl bg-[#F5F4F1] text-gray-500 border-none p-8">
       <div>
         <img className="h-52 object-contain" src={photo} alt="" />
       </div>
       <div className="flex justify-between items-center w-full">
         <div>
           <p>
-            <span className="font-semibold">Name: </span>
+            <span className="font-semibold text-black">Name: </span>
             {name}
           </p>
           <p>
-            <span className="font-semibold">Chef: </span>
+            <span className="font-semibold text-black">Chef: </span>
             {chef}
           </p>
           <p>
-            <span className="font-semibold">Price: </span>$69
+            <span className="font-semibold text-black">Price: </span>$69
           </p>
         </div>
         <div className="space-y-2 flex flex-col">
