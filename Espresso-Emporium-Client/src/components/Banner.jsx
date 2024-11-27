@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div
-      className="mb-24 flex justify-around items-center"
+      className="flex justify-around items-center"
       style={{
         backgroundImage: "url('https://i.ibb.co.com/n8pDMZ8/3.png')",
         backgroundSize: "cover",
