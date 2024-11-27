@@ -3,7 +3,7 @@ import React from 'react';
 const Features = () => {
     return (
         <div className='bg-[#ECEAE3] p-14'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto px-2'>
                 <div>
                     <img src="https://i.ibb.co.com/bHSb9vC/1.png" alt="" />
                     <h3 className='text-3xl mt-4 mb-2 font-ranch'>Awesome Aroma</h3>

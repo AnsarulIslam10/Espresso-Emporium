@@ -7,8 +7,7 @@ const PopularProducts = () => {
   const loadedCoffees = useLoaderData();
   const [coffees, setCoffees] = useState(loadedCoffees);
   return (
-    <div className="mt-32 max-w-7xl mx-auto">
-        <img className="absolute top-96" src="https://i.ibb.co.com/RNf2TKY/4.png" alt="" />
+    <div className="mt-32 max-w-7xl mx-auto px-2">
     <div className="text-center mb-28">
         <p>--- Sip & Savor ---</p>
         <h2 className="font-ranch text-5xl text-amber-900 " style={{textShadow: '#1B1A1A 1px 0 10px'}}>Our Popular Products</h2>
