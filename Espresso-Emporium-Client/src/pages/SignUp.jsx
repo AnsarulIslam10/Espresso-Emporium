@@ -21,7 +21,7 @@ const SignUp = () => {
         const createdAt = result?.user?.metadata?.creationTime;
         const newUser = {name, email, photo, createdAt}
         // save new user info to the database
-        fetch('http://localhost:5000/users', {
+        fetch('https://espresso-emporium-server-pink.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
