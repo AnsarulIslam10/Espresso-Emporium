@@ -41,10 +41,10 @@ const AddCoffee = () => {
       });
   };
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-center py-10">
+    <div className="min-h-screen flex flex-col items-center justify-center py-10">
       <div className="w-full max-w-4xl mb-12">
         <Link to={"/"}>
-          <button className="flex items-center gap-2 self-start text-3xl font-ranch font-semibold">
+          <button className="flex items-center gap-2 self-start text-3xl font-ranch text-amber-900" style={{ textShadow: "#1B1A1A 1px 0 10px" }}>
             <FaArrowLeft /> Back To Home
           </button>
         </Link>

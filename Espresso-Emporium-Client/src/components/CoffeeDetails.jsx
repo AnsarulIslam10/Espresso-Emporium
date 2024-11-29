@@ -18,11 +18,11 @@ const CoffeeDetails = () => {
     <div className="bg-[#F4F3F0] shadow-xl rounded-lg p-8 w-full max-w-4xl">
 
       {/* form */}
-      <div className="flex items-center justify-center bg-[#F4F3F0] ">
+      <div className="flex items-center justify-center bg-[#F4F3F0] py-20 ">
       <div>
-          <img src={photo} alt="" />
+          <img src={photo} alt="" className="h-80" />
         </div>
-        <div className="max-w-sm">
+        <div className="max-w-sm space-y-2">
           <h2 className="text-amber-900 font-ranch text-2xl" style={{ textShadow: "#1B1A1A 1px 0 10px" }}>Niceties</h2>
 
           <p className="text-gray-500">
