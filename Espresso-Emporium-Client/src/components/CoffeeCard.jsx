@@ -60,9 +60,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
           </p>
         </div>
         <div className="space-y-2 flex flex-col">
-          <button className="p-2 text-white text-sm cursor-pointer bg-[#D2B48C] rounded-md">
+          <Link to={`coffeeDetails/${_id}`} className="p-2 text-white text-sm cursor-pointer bg-[#D2B48C] rounded-md">
             <FaEye />
-          </button>
+          </Link>
           <Link to={`updateCoffee/${_id}`} className="p-2 text-white text-sm cursor-pointer bg-[#3C393B] rounded-md">
             <FaPen />
           </Link>
