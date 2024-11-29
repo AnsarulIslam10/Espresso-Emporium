@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const SignIn = () => {
+  const {signInUser} = useContext(AuthContext);
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    signInUser(email, password)
+    .then(result =>{
+      console.log(result.user)
+
+      // update last login time
+      const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+      const loginInfo = {email, lastSignInTime};
+
+      fetch(`http://localhost:5000/users`, {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(loginInfo)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      })
+
+    }).catch(error => {
+      console.log(error)
+    })
+
+  };
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-10">
       <div className="w-full max-w-4xl mb-12">
@@ -24,7 +57,7 @@ const SignIn = () => {
 
         {/* form */}
         <div className="card w-full shrink-0 max-w-2xl mx-auto font-ranch">
-          <form className="card-body">
+          <form onSubmit={handleSignIn} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-xl">Email</span>
