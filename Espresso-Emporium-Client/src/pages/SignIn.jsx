@@ -9,12 +9,9 @@ const SignIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
 
     signInUser(email, password)
     .then(result =>{
-      console.log(result.user)
-
       // update last login time
       const lastSignInTime = result?.user?.metadata?.lastSignInTime;
       const loginInfo = {email, lastSignInTime};

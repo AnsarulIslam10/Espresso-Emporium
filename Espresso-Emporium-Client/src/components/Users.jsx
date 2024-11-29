@@ -6,8 +6,7 @@ import Swal from "sweetalert2";
 const Users = () => {
   const loadedUser = useLoaderData();
   const [users, setUsers] = useState(loadedUser);
-  const handleUserDelete = id =>{
-    console.log(id)
+  const handleUserDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -15,28 +14,27 @@ const Users = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/users/${id}`, {
-          method: 'DELETE'
+          method: "DELETE",
         })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          if(data.deletedCount > 0){
-            Swal.fire({
-              title: "Deleted!",
-              text: "User has been deleted.",
-              icon: "success"
-            });
-            const remainingUsers = users.filter(user => user._id !== id)
-            setUsers(remainingUsers)
-          }
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "User has been deleted.",
+                icon: "success",
+              });
+              const remainingUsers = users.filter((user) => user._id !== id);
+              setUsers(remainingUsers);
+            }
+          });
       }
     });
-  }
+  };
   return (
     <div className="max-w-7xl px-2 mx-auto">
       <h2 className="text-3xl">Users: {users.length}</h2>
@@ -63,8 +61,12 @@ const Users = () => {
                 <td>{user.createdAt}</td>
                 <td>{user.lastSignInTime}</td>
                 <td className="flex gap-3 text-amber-600">
-                   <button><FaPen/></button>
-                    <button onClick={()=> handleUserDelete(user._id)}><FaTrash/></button>
+                  <button>
+                    <FaPen />
+                  </button>
+                  <button onClick={() => handleUserDelete(user._id)}>
+                    <FaTrash />
+                  </button>
                 </td>
               </tr>
             ))}

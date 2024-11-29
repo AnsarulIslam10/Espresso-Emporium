@@ -20,7 +20,7 @@ const UpdateCoffee = () => {
     const photo = form.photo.value;
 
     const updatedCoffee = { name, chef, supplier, taste, category, details, photo };
-    console.log(updatedCoffee);
+
 
     // send data to server
     fetch(`http://localhost:5000/coffee/${_id}`, {
@@ -32,7 +32,6 @@ const UpdateCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             title: "Success!",
