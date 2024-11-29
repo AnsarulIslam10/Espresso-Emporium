@@ -27,6 +27,12 @@ const Navbar = () => {
         </Link>
         <div className="mt-3 space-x-2">
           <Link
+            to={"/users"}
+            className="btn bg-[#E3B577] rounded-none border-none px-5 text-lg"
+          >
+            Users
+          </Link>
+          <Link
             to={"signin"}
             className="btn bg-[#E3B577] rounded-none border-none px-5 text-lg"
           >
