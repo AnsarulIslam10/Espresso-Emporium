@@ -83,7 +83,6 @@ async function run() {
       res.send(result);
     })
 
-
     // Users related apis
     app.get('/users', async(req, res)=>{
       const cursor = userCollection.find();
